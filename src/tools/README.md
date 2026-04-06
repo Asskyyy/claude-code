@@ -1,20 +1,31 @@
 # Agent Tools (`/src/tools`)
 
-## 🎯 Purpose
-This directory contains the catalog of self-contained tools that the Claude agent can invoke to interact with the file system, network, or external systems.
+## Purpose
+This directory contains the catalog of capabilities (tools) that the Claude Code model can invoke to interact with the local environment and external systems.
 
-## 🏛️ Domain Boundaries
-* **Owns:** Tool logic implementations, input schema definitions (Zod), and specific permission models for each tool (e.g., `FileReadTool`, `BashTool`).
-* **Does NOT Own:** The query execution loop that calls them (see `/src/query`), or user-facing slash commands (see `/src/commands`).
+## Where this fits in the pipeline
+Tools are the execution endpoints for the LLM. They are invoked by the `src/query` engine when the model determines an action is necessary to fulfill a request.
 
-## 🔑 Key Entry Files
-* `index.ts` - Tool registry exporting all available tools to the query engine.
-* Individual tool implementations (e.g., file tools, bash execution).
+## Owns
+* Tool implementation logic and execution routines.
+* Input schema definitions (Zod) for validation.
+* Capability-specific formatting of outputs back to the model.
 
-## 🔄 Dependencies
-* **Upstream (Depends on):** External subsystems (File System, OS, network).
-* **Downstream (Depended on by):** The Query Engine (`/src/query`), which provides the LLM's tool calls.
+## Does Not Own
+* The decision of *when* to execute a tool (managed by the model via `/src/query`).
+* User-invoked slash commands (see `/src/commands`).
+* Global permission state management.
 
-## 📖 Read Next
-* [High-Level Tools Reference](../../docs/tools.md)
-* [Commands](../commands/README.md)
+## Key files / Key subpaths
+Tools are conceptually organized into functional categories, such as:
+* **File System / I/O:** Reading, writing, and editing files (e.g., `FileReadTool`, `FileEditTool`).
+* **Search:** Context gathering across the repository (e.g., `GrepTool`, `GlobTool`).
+* **Execution:** Running local shell commands (e.g., `BashTool`).
+* **Agents & Workflows:** Spawning sub-tasks or accessing remote MCP servers.
+
+## Typical data / control flow
+Query Engine requests tool execution → Tool receives validated schema → Tool performs action (e.g., reads file, runs bash) → Tool returns structured text result to the Query Engine.
+
+## Read Next
+* [Tools Reference](../../docs/tools.md)
+* [Slash Commands](../commands/README.md)
