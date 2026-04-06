@@ -1,22 +1,21 @@
 # Scripts & Tooling (`/scripts`)
 
-## 🎯 Purpose
-This directory contains utility scripts, build processes, testing harnesses, and CI/CD automation tools used to manage the lifecycle of the Gemini CLI project.
+## Purpose
+This directory contains utility scripts, build processes, and testing harnesses used to manage the development and compilation lifecycle of Claude Code.
 
-## 🏛️ Domain Boundaries
-* **Owns:** Build scripts (TypeScript/Shell), bundling logic, test execution scripts, and npm packaging utilities.
-* **Does NOT Own:** Core application logic (see `/src`), or the actual CI/CD workflow definitions (which reside in `.github/workflows/`).
+## Owns
+* Build scripts (TypeScript/Shell) and bundling logic.
+* Test execution scripts tailored for specific subsystems.
+* Scripts for running the application in local development mode.
 
-## 🔑 Key Entry Files
-* `build-bundle.ts` / `build.sh` - Scripts for compiling and bundling the CLI for production.
-* `dev.ts` - Script for running the application in development mode with hot-reloading.
-* `package-npm.ts` - Utility for preparing the npm package publication.
-* `test-mcp.ts` / `test-commands.ts` - Custom test runners for specific subsystems.
+## Does Not Own
+* Core application logic (see `/src`).
+* GitHub Actions CI/CD workflow definitions (which reside in `.github/workflows/`).
 
-## 🔄 Dependencies
-* **Upstream (Depends on):** Source code in `/src`, dependencies in `package.json`, and the Bun runtime.
-* **Downstream (Depended on by):** GitHub Actions workflows (in `.github/`), and developer local workflows.
+## Key Entry Files
+* `build-bundle.ts` / `build.sh` - Scripts for compiling and bundling the CLI.
+* `dev.ts` - Script for running the application in development mode.
+* `test-mcp.ts` / `test-commands.ts` - Custom test runners for specific features.
 
-## 📖 Read Next
+## Read Next
 * [Core Source Code](../src/README.md)
-* [Production Bundle Prompt](../prompts/15-production-bundle.md)

@@ -199,12 +199,12 @@ claude mcp remove claude-code-explorer
 
 If you are new to the codebase, start by reading the high-level architecture documents and then drill down into the sub-directories:
 
-* **[Docs & Architecture (`/docs`)](docs/README.md)** - High-level system design, subsystem definitions, and tool references.
+* **[Docs & Architecture (`/docs`)](docs/README.md)** - High-level system design, subsystem definitions, and tool references for Claude Code.
 * **[Core Source Code (`/src`)](src/README.md)** - The primary CLI execution runtime, React/Ink UI, and tool orchestration.
-* **[Prompt Engineering Notes (`/prompts`)](prompts/README.md)** - Historical context, rationale, and prompt design notes.
-* **[Scripts & Tooling (`/scripts`)](scripts/README.md)** - Build, development, and testing utilities.
-* **[Web Dashboard (`/web`)](web/README.md)** - Next.js web application frontend.
-* **[MCP Server (`/mcp-server`)](mcp-server/README.md)** - The standalone MCP server implementation.
+* **[Prompt Engineering Notes (`/prompts`)](prompts/README.md)** - Historical context, rationale, and iterative design notes.
+* **[Scripts & Tooling (`/scripts`)](scripts/README.md)** - Build processes, development scripts, and testing utilities.
+* **[Web Application (`/web`)](web/README.md)** - Next.js web dashboard frontend.
+* **[MCP Server (`/mcp-server`)](mcp-server/README.md)** - The standalone MCP server core and serverless API wrappers.
 
 ---
 

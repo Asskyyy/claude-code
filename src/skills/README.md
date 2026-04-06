@@ -4,7 +4,7 @@
 This directory contains reusable, composable workflows and specialized instructions (skills) that augment the agent's baseline capabilities.
 
 ## 🏛️ Domain Boundaries
-* **Owns:** Definition of skill schemas, loading logic for user-defined `.gemini/skills/` (or `.claude`), and the built-in default skills.
+* **Owns:** Definition of skill schemas, loading logic for user-defined `.claude/skills/`, and the built-in default skills.
 * **Does NOT Own:** The underlying execution engine that runs the skills (see `/src/query`), or the multi-agent coordination (see `/src/coordinator`).
 
 ## 🔑 Key Entry Files
