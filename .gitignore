@@ -42,4 +42,6 @@ bun.lockb
 tmp/
 temp/
 
-
+# self
+.gemini/*
+GEMINI.md
